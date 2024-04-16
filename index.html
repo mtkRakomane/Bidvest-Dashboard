@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/Bidvest-Protea-Coin-Logo.png" type="image/x-icon">
+</head>
+
+<body class="bg-gray-800 h-full">
+
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 h-full">
+        <!-- First block -->
+        <div class=" rounded-md col-span-2 sm:row-span-2 text-white flex flex-col">
+            <!-- Header for the weather -->
+            <h1 class="bg-indigo-900 p-3 text-white text-center rounded m-3 bg-opacity-25">WEATHER</h1>
+            <iframe class="h-screen sm:h-full" src="https://zoom.earth/places/south-africa/#map=precipitation/model=icon" style="border-radius: 10px;" width="100%"
+                height="100%" class="flex-1"></iframe>
+        </div>
+        <!-- Second block - includes News and Traffic -->
+        <div class="sm:col-span-1 bg-gray-800 flex flex-col relative">
+
+            <!-- News -->
+            <h1 class="bg-indigo-900 p-3 text-white text-center rounded-md m-3 bg-opacity-25">NEWS</h1>
+            <div class="news p-2 sm:p-8 mt-2 sm:mt-24 mb-2 lg:mt-0 bg-gray-800 m-3">
+                <iframe width="100%" height="400" style="border: none;" src="https://rss.app/embed/v1/carousel/VuZE4NdQ4IIO9QAi"
+                    frameborder="0"></iframe>
+            </div>
+            <!-- Traffic -->
+            <h1 class="bg-indigo-900 p-3 text-white  text-center rounded-md mt-6 m-3 mb-4 bg-opacity-25">TRAFFIC UPDATES</h1>
+            <div class="  rounded font-bold tracking-wide mt-8 p-1 m-3 pt-8 sm:mt-6 lg:mt-8 h-full">
+                <iframe  is="x-frame-bypass" frameborder="0" style="border-radius:10px; overflow: hidden;" scrolling="no"
+                    src="https://www.i-traffic.co.za/Map/EmbeddedMap?&size=3" width="100%" height="100%"></iframe>
+            </div>
+
+            <div class="flex items-stretch  bg-gray-800"> <img class="p-0 mt-2 sm:mt-8 lg:mt-48"
+                    src="assets/Bidvest-Protea-Coin-Logo - Security Excellence.jpg" alt=""></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
