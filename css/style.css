@@ -1,12 +1,13 @@
 
         body {
             overflow: hidden; /* Prevent scrolling until content is loaded */
+        
         }
 
         .content {
             display: none; /* Initially hide the content */
         }
-
+       
         .loader {
             display: flex;
             align-items: center;
