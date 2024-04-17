@@ -1,5 +1,21 @@
-/* div{
 
+        body {
+            overflow: hidden; /* Prevent scrolling until content is loaded */
+        }
 
-    background-color: rgb(169, 148, 73);
-} */
+        .content {
+            display: none; /* Initially hide the content */
+        }
+
+        .loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1e1e1e; /* Adjust loader background color */
+            z-index: 9999; /* Ensure the loader is above other elements */
+        }
