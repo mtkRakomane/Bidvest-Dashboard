@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slide.innerHTML = `
     <a href="${link}" class="carousel-slide-link">
         <div class="carousel-slide-container">
-            <img src="${imageUrl}" alt="${title}" class="news-image rounded-md w-90 h-90">
+            <img src="${imageUrl}" alt="${title}" class="news-image rounded-md w-90 h-96">
             <div class="carousel-slide-content font-sans rounded-md font-bold">
                 <h2 class" font-bold">${title}</h2>
             </div>
@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
       let currentSlide = 0;
 
       setInterval(() => {
-        currentSlide = (currentSlide + 1) % numSlides;
         showSlide(currentSlide);
-      }, 5000); // Change slide every 5 seconds
+        currentSlide = (currentSlide + 1) % numSlides;
+      }, 6000); // Change slide every 5 seconds
 
       function showSlide(index) {
         carouselSlides.forEach((slide, i) => {
