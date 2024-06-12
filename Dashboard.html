@@ -1,56 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
-        <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css"
-            rel="stylesheet">
-        <link rel="shortcut icon" href="assets/Bidvest-Protea-Coin-Logo.png"
-            type="image/x-icon">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/Bidvest-Protea-Coin-Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-    <body class="bg-gray-800 text-white">
-        <!-- Loader section -->
-        <div class="loader w-full">
-            <div class="relative flex justify-center items-center">
-                <div
-                    class="absolute animate-spin rounded-full h-96 w-96 border-t-4 border-b-4 border-yellow-300 "></div>
-                <img src="assets/Bidvest-Protea-Coin-Logo.png"
-                    class="rounded-md h-28 w-72 animate-bounce">
-            </div>
+<body class="bg-gray-800 text-white">
+    <!-- Loader section -->
+    <div class="loader w-full">
+        <div class="relative flex justify-center items-center">
+            <div class="absolute animate-spin rounded-full h-96 w-96 border-t-4 border-b-4 border-yellow-300 "></div>
+            <img src="assets/Bidvest-Protea-Coin-Logo.png" class="rounded-md h-28 w-72 animate-bounce">
         </div>
-        <!-- Main content -->
-        <div class="content h-screen w-screen">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+    </div>
+    <!-- Main content -->
+    <div class="content h-screen w-screen">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
 
-                <!-- First block -->
-                <div
-                    class="rounded-md col-span-2 sm:row-span-2 text-white flex flex-col">
-                    <!-- Header for the weather -->
+            <!-- First block -->
+            <div class="rounded-md col-span-2 sm:row-span-2 text-white flex flex-col">
+                <!-- Header for the weather -->
 
-                    <!-- weather-Zoom -->
-                    <div class="relative overflow-hidden"
-                        style="height: 100%;">
-                        <iframe class="absolute top-0 left-0 w-full h-full"
-                            src="https://zoom.earth/places/south-africa/#map=precipitation/model=icon"
-                            style="border-radius: 10px; border: none; height: 100vh;"></iframe>
-                    </div>
+                <!-- weather-Zoom -->
+                <div class="relative overflow-hidden" style="height: 100%;">
+                    <iframe class="absolute top-0 left-0 w-full h-full"
+                        src="https://zoom.earth/places/south-africa/#map=precipitation/model=icon"
+                        style="border-radius: 10px; border: none; height: 100vh;"></iframe>
                 </div>
-                <!-- Second block - includes News and Traffic -->
-                <div class="sm:col-span-1 bg-gray-800 flex flex-col h-screen">
+            </div>
+            <!-- Second block - includes News and Traffic -->
+            <div class="sm:col-span-1 bg-gray-800 flex flex-col h-screen">
 
-                    <!-- NEWS -->
+                <!-- NEWS -->
 
-                    <div id="news-feed"
-                        class="news text-xl bg-gray-800 ">
-                    </div>
+                <div id="news-feed" class="news text-xl bg-gray-800 ">
+                </div>
 
-<!-- needs next and previous buttons for the news slider over  -->
+                <!-- needs next and previous buttons for the news slider over  -->
 
-                    <!-- <div>
+                <!-- <div>
 
                         <button id="prevButton"
                             class="  text-white text-2xl px-12 bg-gray-800 bg-opacity-50 rounded-full">Previous</button>
@@ -59,12 +52,17 @@
 
                     </div> -->
 
-                    <!-- hr line -->
-                    <div><hr class="mt-12"></div>
+                <!-- hr line -->
+                <div>
+                    <hr class="mt-12">
+                </div>
 
-                    <!-- Traffic -->
-
-                    <div class="rounded font-bold tracking-wide p-1 mt-8">
+                <!-- Traffic -->
+                <div>
+                    <a class="twitter-timeline" width="100%" height="350vh" href="https://twitter.com/TrafficSA?ref_src=twsrc%5Etfw">Tweets by TrafficSA</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  </div>
+                <!-- <div class="rounded font-bold tracking-wide p-1 mt-8">
                         <iframe is="x-frame-bypass" frameborder="0"
                             style="border-radius:10px; overflow: hidden;;"
                             scrolling="no"
@@ -72,15 +70,14 @@
                             width="100%"
                             height="100vh"></iframe>
                     </div>
-                    <div class="footer bg-gray-800">
-                        <img
-                            src="assets/Bidvest-Protea-Coin-Logo - Security Excellence.jpg"
-                            style="padding-top:19%;" alt="Bidvest-Protea-Coin">
-                    </div>
-                </div>
+                -->
             </div>
         </div>
-        <script src="js/script.js"></script>
-    </body>
+    </div>
+    <div class="footer bg-gray-800">
+        <img src="assets/Bidvest-Protea-Coin-Logo - Security Excellence.jpg" alt="Bidvest-Protea-Coin">
+    </div>
+    <script src="js/script.js"></script>
+</body>
 
 </html>

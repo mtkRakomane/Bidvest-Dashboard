@@ -1,79 +1,84 @@
-// Get User Tweet timeline by user ID
-// https://developer.twitter.com/en/docs/twitter-api/tweets/timelines/quick-start
+window.addEventListener("load", function () {
+  document.querySelector(".loader").style.display = "none";
+  document.querySelector(".content").style.display = "block";
+  document.body.style.overflow = "auto"; // Restore scrolling after content is loaded
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const feedContainer = document.getElementById("news-feed");
+  const feedUrl =
+    "https://feeds.capi24.com/v1/Search/articles/news24/SouthAfrica/rss";
 
-const needle = require('needle');
+  fetch(feedUrl)
+    .then((response) => response.text())
+    .then((xml) => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xml, "text/xml");
+      const items = xmlDoc.querySelectorAll("item");
 
-// this is the ID for @TwitterDev
-const userId = "2244994945";
-const url = `https://api.twitter.com/2/users/${userId}/tweets`;
+      items.forEach((item) => {
+        const title = item.querySelector("title").textContent;
+        const link = item.querySelector("link").textContent;
+        const imageUrl = item.querySelector("enclosure").getAttribute("url");
+        const description = item.querySelector("description").textContent;
 
-// The code below sets the bearer token from your environment variables
-// To set environment variables on macOS or Linux, run the export command below from the terminal:
-// export BEARER_TOKEN='YOUR-TOKEN'
-const bearerToken = process.env.BEARER_TOKEN;
+        const slide = document.createElement("div");
+        slide.classList.add("carousel-slide");
 
-const getUserTweets = async () => {
-    let userTweets = [];
+        slide.innerHTML = `
+    <a href="${link}" class="carousel-slide-link">
+        <div class="carousel-slide-container">
+            <img src="${imageUrl}" alt="${title}" class="news-image rounded-md w-90 h-96">
+            <div class="carousel-slide-content font-sans rounded-md font-bold">
+                <h2 class" font-bold">${title}</h2>
+            </div>
+        </div>
+    </a>
+`;
 
-    // we request the author_id expansion so that we can print out the user name later
-    let params = {
-        "max_results": 100,
-        "tweet.fields": "created_at",
-        "expansions": "author_id"
-    }
+        feedContainer.appendChild(slide);
+      });
 
-    const options = {
-        headers: {
-            "User-Agent": "v2UserTweetsJS",
-            "authorization": `Bearer ${bearerToken}`
-        }
-    }
+      // Initialize and start carousel
+      const carouselSlides = document.querySelectorAll(".carousel-slide");
+      const numSlides = carouselSlides.length;
+      let currentSlide = 0;
 
-    let hasNextPage = true;
-    let nextToken = null;
-    let userName;
-    console.log("Retrieving Tweets...");
+      setInterval(() => {
+        showSlide(currentSlide);
+        currentSlide = (currentSlide + 1) % numSlides;
+      }, 6000); // Change slide every 5 seconds
 
-    while (hasNextPage) {
-        let resp = await getPage(params, options, nextToken);
-        if (resp && resp.meta && resp.meta.result_count && resp.meta.result_count > 0) {
-            userName = resp.includes.users[0].username;
-            if (resp.data) {
-                userTweets.push.apply(userTweets, resp.data);
-            }
-            if (resp.meta.next_token) {
-                nextToken = resp.meta.next_token;
-            } else {
-                hasNextPage = false;
-            }
-        } else {
-            hasNextPage = false;
-        }
-    }
+      function showSlide(index) {
+        carouselSlides.forEach((slide, i) => {
+          if (i === index) {
+            slide.style.display = "block";
+          } else {
+            slide.style.display = "none";
+          }
+        });
+      }
+    })
+    .catch((error) => console.error("Error fetching RSS feed:", error));
+});
 
-    console.dir(userTweets, {
-        depth: null
-    });
-    console.log(`Got ${userTweets.length} Tweets from ${userName} (user ID ${userId})!`);
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize Swiper carousel
+  var swiper = new Swiper('.swiper-container', {
+    loop: true,
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    autoplay: {
+      delay: 5000, // Set autoplay interval to 5 seconds
+      disableOnInteraction: false,
+    },
+  });
 
-}
+  // Function to update Twitter timeline link every 5 seconds
+  function updateTwitterTimeline() {
+    var twitterTimelineLink = document.getElementById('twitter-timeline');
+    twitterTimelineLink.href = "https://twitter.com/TrafficSa?ref_src=twsrc%5Etfw&random=" + Math.random(); // Append random parameter to force reload
+  }
 
-const getPage = async (params, options, nextToken) => {
-    if (nextToken) {
-        params.pagination_token = nextToken;
-    }
-
-    try {
-        const resp = await needle('get', url, params, options);
-
-        if (resp.statusCode != 200) {
-            console.log(`${resp.statusCode} ${resp.statusMessage}:\n${resp.body}`);
-            return;
-        }
-        return resp.body;
-    } catch (err) {
-        throw new Error(`Request failed: ${err}`);
-    }
-}
-
-getUserTweets();
+  // Update Twitter timeline every 5 seconds
+  setInterval(updateTwitterTimeline, 5000);
+});
