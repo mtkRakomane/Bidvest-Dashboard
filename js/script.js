@@ -60,25 +60,3 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("Error fetching RSS feed:", error));
 });
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Initialize Swiper carousel
-  var swiper = new Swiper('.swiper-container', {
-    loop: true,
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    autoplay: {
-      delay: 5000, // Set autoplay interval to 5 seconds
-      disableOnInteraction: false,
-    },
-  });
-
-  // Function to update Twitter timeline link every 5 seconds
-  function updateTwitterTimeline() {
-    var twitterTimelineLink = document.getElementById('twitter-timeline');
-    twitterTimelineLink.href = "https://twitter.com/TrafficSa?ref_src=twsrc%5Etfw&random=" + Math.random(); // Append random parameter to force reload
-  }
-
-  // Update Twitter timeline every 5 seconds
-  setInterval(updateTwitterTimeline, 5000);
-});
