@@ -17,6 +17,7 @@
         </div>
     </div>
     <!-- Main content -->
+     <div class="container-fluid">
     <div class="content h-screen w-screen">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
   <!-- First block -->
@@ -27,13 +28,13 @@
                 <div class="relative overflow-hidden" style="height: 100%;">
                     <iframe class="absolute top-0 left-0 w-full h-full"
                         src="https://zoom.earth/places/south-africa/#map=precipitation/model=icon"
-                        style="border-radius: 10px; border: none; height: 100vh;"></iframe>
+                        style="border-radius: 10px; border: none; height: 95vh;"></iframe>
                 </div>
             </div>
             <!-- Second block - includes News and Traffic -->
             <div class="sm:col-span-1 bg-gray-800 flex flex-col h-screen">
                 <!-- NEWS -->
-                <div id="news-feed" class="news text-xl bg-gray-800 ">
+                <div id="news-feed" class="news text-xl bg-gray-800">
                 </div>
                 <!-- hr line -->
                 <div>
@@ -41,19 +42,20 @@
                 </div>
                 <!-- Traffic -->
                  <div>
-                <h1 id ="alert">Traffic Alerts!</h1>
-                <iframe frameborder="0" style="border: none; overflow: auto;" scrolling="no"
+                <iframe is="x-frame-bypass" frameborder="0" style="border-radius:10px; overflow: auto;" scrolling="no"
                  src="https://www.i-traffic.co.za/Map/EmbeddedMap?&region=GP&layers=TrafficSpeeds,Incidents,Construction,Closures,Congestion&size=8"
-                  width="470px" height="300px"></iframe> 
+                  width="470px" height="240px"></iframe> 
                   </div>
                   <img
                   src="assets/Bidvest-Protea-Coin-Logo - Security Excellence.jpg"
-                  style="padding-top: 15%"
+                  style="padding-top: 6%"
                   alt="Bidvest-Protea-Coin"
                   width="470px"
+                  height="30px"
                 />
             </div>
         </div>
+    </div>
     </div>
     <script src="js/script.js"></script>
 </body>
