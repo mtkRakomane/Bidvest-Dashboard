@@ -90,10 +90,3 @@ body {
 .carousel-slide-container:hover .carousel-slide-content {
     font-size: larger;
 }
-
-#alert {
-    text-align: center;
-    font-size: medium;
-    font-weight: bold;
-    color: darkgrey;
-}
